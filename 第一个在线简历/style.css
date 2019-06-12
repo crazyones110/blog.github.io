@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+ul,ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(239, 239, 239);
+}
+.topNavBar {
+    position: fixed;
+    width: 100%;
+    padding-top: 34px;
+}
+
+.rscard {
+    float: left;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.rscard>.rs {
+    color: rgb(230, 104, 108);
+    padding-left: 20px;
+}
+
+.rscard>.rs_card {
+    color: rgb(154, 157, 162);
+    padding-left: 15px;
+}
+
+.nav {
+    float: right;
+}
+
+.nav>ul>li {
+    float: left;
+    padding-right: 36px;
+}
+
+.nav>ul>li a {
+    color: #b7b7b7;
+    line-height: 15px;
+    padding: 9px 0;
+    display: block;
+    font-size: 14px;
+}
+
+.nav>ul>li a:hover {
+    /* padding-bottom:  */
+    border-bottom: 2px solid rgb(230, 104, 108);
+}
+
+.banner {
+    height: 515px ;
+    background-image: url(https://fangyinghang.com/resume-15-2/img/rs-cover.jpg);
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+.banner .mask {
+    height: 515px ;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+main {
+    background-color: rgb(239, 239, 239);
+    z-index: -1;
+    /* background-color: red; */
+    border: 1px solid rgb(239, 239, 239);
+}
+
+main .card {
+    max-width: 940px;
+    background-color: white;
+    /* background-color: blue; */
+    margin: 0 auto;
+    /* position: relative;
+    top:-100px; */
+    margin-top: -320px;
+}
+
+
+.textAndImage {
+    /* border: 1px solid blue; */
+    padding: 55px 55px;
+    /* margin-top: -400px; */
+}
+
+.textAndImage>.img {
+    float: left;
+    width: 299px;
+    height: 350px;
+    overflow: hidden;
+}
+.textAndImage>.img>img{
+    /* width: 100%; */
+    height: 100%;
+}
+
+.textAndImage>.description {
+    float: left;
+    margin-left: 70px;
+    position: relative;
+}
+
+.textAndImage>.description>.welcome {
+    background-color: rgb(230, 104, 108);
+    display: inline-block;
+    height: 34px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    line-height: 34px;
+    padding: 0 20px;
+}
+
+.textAndImage>.description>.triangle {
+    border: 6px solid transparent;
+    width: 0;
+    border-top: 6px solid rgb(230, 104, 108);
+    border-left: 6px solid rgb(230, 104, 108);
+    /* border-top: 6px solid black;
+    border-left: 6px solid black; */
+    display: inline-block;
+    /* height: 10px;
+    width: 10px; */
+    position: absolute;
+    left: 5px;
+    top: 34px;
+}
+
+.description>h1 {
+    padding-top: 24px;
+    /* width: 520px; */
+}
+
+.description>hr {
+    margin: 25px 0;
+    /* border: 0; */
+    color: rgb(222, 222, 222);
+    width: 450px;
+}
+
+.description dl {
+    width: 450px;
+}
+
+.description dt, .description dd {
+    float: left;
+}
+
+.description dt {
+    font-weight: bold;
+    width: 30%;
+    padding-bottom: 9px;
+}
+
+.description dd {
+    color: #b7b7b7;
+    padding-bottom: 9px;
+    width: 70%;
+}
+.card{
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.5);
+}
+.card>footer.media {
+    background: #E6686A;
+    text-align: center;
+}
+
+.card>footer.media>a {
+    display: inline-block;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    border-radius: 50%;
+    margin: 16px;
+}
+
+.card>footer.media>a:hover {
+    background: #CF5D5F;
+}
+
+.card svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    vertical-align: top;
+}
+main>a{
+    width: 214px;
+    margin: 34px auto;
+    display: block;
+    font-weight: bold;
+    border: 1px solid rgb(205, 207, 209);
+    text-align: center;
+    color: black;
+    height: 62px;
+    line-height: 62px;
+    border-radius: 2px;
+    transition: all 0.2s;
+}
+main>a:hover{
+    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.5);
+}
+main>p{
+    max-width: 616px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    font-family: cursive;
+    font-size: 18px;
+}
+.skills{
+    /* border: 1px solid red; */
+}
+.skills>h2{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 70px;
+    margin-bottom: 34px;
+}
+.skills>ol{
+    max-width: 940px;
+    margin: 0 auto;
+    /* border: 1px solid blue; */
+    /* height: 300px; */
+    padding: 47px 55px;
+    padding: 0 0 47px 55px;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+}
+.skills>ol>li{
+    float: left;
+    width: 45%;
+    box-sizing: border-box;
+}
+.skills>ol>li:nth-child(even){
+    margin-left: 30px;
+}
+.skills>ol>li>.skill-wrapper{
+    /* margin: 47px 55px; */
+    margin-top: 47px;
+}
+.skills>ol>li .skillname{
+    font-size: 14px;
+}
+.skills .progress{
+    height: 7px;
+    background-color: rgb(250, 225, 225);
+    border-radius: 3px;
+}
+.skills .progress>.progress-inner{
+    height: 100%;
+    width: 40%;
+    background-color: rgb(230, 104, 106);
+    border-radius: 3px;
+}
+.portfolio>h2{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 70px;
+    margin-bottom: 34px;
+}
+.portfolio>nav{
+    text-align: center;
+}
+.portfolio>nav>ol{
+    display: inline-block;
+    vertical-align: top;
+    /* border: 1px solid red; */
+}
+.portfolio>nav>ol>li{
+    float: left;
+    margin-left: 43px;
+}
+.portfolio>nav>ol>li:hover{
+    cursor: pointer;
+}
+.portfolio>nav>ol>li:first-child{
+    margin-left: 0;
+}
+.portfolio>nav>.progress{
+    height: 5px;
+    background-color: white;
+    border-radius: 3px;
+    /* display: inline-block; */
+    /* vertical-align: top; */
+    width: 245px;
+    margin: 0 auto;
+    /* transition: all 1s; */
+    margin-top: 6px;
+}
+.portfolio>nav>.progress>.progress-inner{
+    transition: all 0.5s;
+}
+.portfolio>nav>.progress.state1>.progress-inner{
+    height: 100%;
+    width: 18%;
+    background-color: rgb(230, 104, 106);
+    border-radius: 3px;
+    /* transition: all 1s; */
+}
+.portfolio>nav>.progress.state2>.progress-inner{
+    height: 100%;
+    width: 18%;
+    background-color: rgb(230, 104, 106);
+    border-radius: 3px;
+    margin-left: 72px;
+    /* transition: all 1s; */
+}
+.portfolio>nav>.progress.state3>.progress-inner{
+    height: 100%;
+    width: 40%;
+    background-color: rgb(230, 104, 106);
+    border-radius: 3px;
+    margin-left: 146px;
+    /* transition: all 1s; */
+}
+.portfolio{
+    margin-bottom: 200px;
+}
+.portfolio>.jobs{
+    max-width: 940px;
+    margin: 28px auto;
+    /* border: 1px solid red; */
+}
+.portfolio>.jobs>.big{
+    float: left;
+}
+.portfolio>.jobs>.small-wrapper{
+    float: right;
+}
+.portfolio>.jobs>.small-wrapper>div:nth-child(2){
+    margin-top: 23px;
+}
