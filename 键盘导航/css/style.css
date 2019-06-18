@@ -12,21 +12,65 @@ main>.wrapper{
 kbd{
     border: 1px solid red;
 }
+main{
+    text-align: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    background-image: url(../imgs/luffy.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main>.wrapper{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+main>.wrapper>div{
+    /* margin-bottom: 20px; */
+    margin: 20px 0;
+}
 main>.wrapper>div:nth-child(2){
-    margin-left: 1em;
+    margin-left: -10px;
 }
 main>.wrapper>div:nth-child(3){
-    margin-left: 2em;
+    margin-left: -60px;
 }
 main>.wrapper>div>kbd{
     width: 60px;
     height: 60px;
     display: inline-block;
-    position: relative;
+    /* position: relative; */
     text-transform: uppercase;
+
+
+    width: 63px; height: 50px; background: linear-gradient(to bottom, #292929 0%,#111111 100%); 
+	border: 1px solid #373737; color: #C5C5C5; border-radius: 6px; 
+	box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808; 
+	position: relative;
+    font-size: 16px; font-family: Helvetica;
+    margin-left: 15px;
+    
+}
+kbd>span{
+    position: absolute;
+    top: 1px;
+    left: 5px;
+}
+kbd:hover>button{
+    display: inline-block;
 }
 kbd>button{
     position: absolute;
     bottom: 0;
     right: 0;
+    display: none;
+}
+kbd>img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    left: 0;
 }

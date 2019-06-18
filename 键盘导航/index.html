@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>键盘导航</title>
 </head>
+
 <body>
     <header></header>
     <main>
@@ -14,45 +16,99 @@
     </main>
     <footer></footer>
     <script>
-        var keys = {
-				'0': {0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
-				'1': {0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:9},
-				'2': {0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m',length:7},
-				'length': 3
-			}
-        var hash = {'q': 'qq.com', 'w': 'weibo.com', 'e': 'ele.me', 'r': 'renren.com', 't': 'tianya.com', 'y': 'youtube.com', 'u': 'uc.com' , 'i': 'iqiyi.com', 'o': 'opera.com', 'p': undefined, 'a': 'acfun.tv', 's': 'sohu.com', 'z': 'zhihu.com', 'm': 'www.mcdonalds.com.cn'
-        }
-        var hashInLocalStorage = JSON.parse(localStorage.getItem('temp') || 'null');
-        if(hashInLocalStorage){
-            hash = hashInLocalStorage;
-        }
-        for(let index = 0;index < keys['length']; index++){
-            div1 = document.createElement("div")
-            main.appendChild(div1)
-            for(let index2 = 0;index2 < keys[index]['length']; index2++){
-                kbd = document.createElement("kbd");
-                kbd.textContent = keys[index][index2];
-                div1.appendChild(kbd);
-                button = document.createElement("button");
-                button.textContent = "编辑";
-                button.id = keys[index][index2];
-                kbd.appendChild(button);
-                button.onclick = function(but){
-                    var key = but.target.id;//表示button对应哪个键
-                    var newWebsite = prompt("请输入新的网址");
-                    hash[key] = newWebsite;
-                    localStorage.setItem('temp', JSON.stringify(hash));
+        //初始化
+        var keys = init().keys;
+        var hash = init().hash;
+        //生成键盘
+        generateKeyboard(keys, hash);
+        //监听用户按键
+        listenToUser();
 
+        function tag(name) {
+            var x = document.createElement(name);
+            return x;
+        }
+        function init() {
+            var keys = {
+                '0': { 0: 'q', 1: 'w', 2: 'e', 3: 'r', 4: 't', 5: 'y', 6: 'u', 7: 'i', 8: 'o', 9: 'p', length: 10 },
+                '1': { 0: 'a', 1: 's', 2: 'd', 3: 'f', 4: 'g', 5: 'h', 6: 'j', 7: 'k', 8: 'l', length: 9 },
+                '2': { 0: 'z', 1: 'x', 2: 'c', 3: 'v', 4: 'b', 5: 'n', 6: 'm', length: 7 },
+                'length': 3
+            }
+            var hash = { 'q': 'qq.com', 'w': 'weibo.com', 'e': 'ele.me', 'r': 'renren.com', 't': 'tianya.com', 'y': 'youtube.com', 'u': 'uc.com', 'i': 'iqiyi.com', 'o': 'opera.com', 'p': undefined, 'a': 'acfun.tv', 's': 'sohu.com', 'z': 'zhihu.com', 'm': 'www.mcdonalds.com.cn' };
+            var hashInLocalStorage = JSON.parse(localStorage.getItem('temp') || 'null');
+            if (hashInLocalStorage) {
+                hash = hashInLocalStorage;
+            }
+            return { keys: keys, hash: hash };
+        }
+        function createSpan(textContent) {
+            var span = tag("span");
+            span.textContent = textContent;
+            return span;
+        }
+        function createButton(id, textContent) {
+            var button = tag("button");
+            button.textContent = textContent;
+            button.id = id;
+            button.onclick = function (but) {
+                var key = but.target.id;
+                var newWebsite = prompt("请输入新绑定的网址~");
+                hash[key] = newWebsite;
+                localStorage.setItem("temp", JSON.stringify(hash));
+                var img = button.nextSibling;
+                img.src = "http://" + newWebsite + "/favicon.ico";
+                img.onerror = function (imgtemp) {
+                    // imgtemp.target.src = 'https://i.loli.net/2017/11/10/5a05afbc5e183.png';
+                    imgtemp.target.src = 'imgs/imgerror.png';
+                }
+            }
+            return button;
+        }
+        function generateKeyboard(keys, hash){
+            for (let index = 0; index < keys['length']; index++) {
+                div1 = tag("div");
+                main.appendChild(div1)
+                for (let index2 = 0; index2 < keys[index]['length']; index2++) {
+
+                    kbd = tag("kbd");
+                    div1.appendChild(kbd);
+
+                    var span = createSpan(keys[index][index2]);//q, w, e, r
+                    kbd.appendChild(span);
+
+                    var button = createButton(keys[index][index2], "编辑");
+                    kbd.appendChild(button);
+
+                    var img =createImg(hash[keys[index][index2]]);
+                    kbd.appendChild(img);
                 }
             }
         }
-        document.onkeypress = function(pressKey){
+
+        
+        function createImg(domain){
+            var img = tag("img");
+            if(domain){
+                img.src = "http://" + domain + "/favicon.ico";
+            }else{
+                img.src = 'imgs/imgerror.png';
+            }       
+            img.onerror = function (imgtemp) {
+                // imgtemp.target.src = 'https://i.loli.net/2017/11/10/5a05afbc5e183.png';
+                imgtemp.target.src = 'imgs/imgerror.png';
+            } 
+            return img;
+        }
+        function listenToUser(){
+            document.onkeypress = function (pressKey) {
             console.log(pressKey);
             var key = pressKey.key;//这个是根据上一步输出看出来的，pressKey是一个对象，里面的key是按下的值
-            window.open("http://"+hash[key], "_blank");
+            window.open("http://" + hash[key], "_blank");
+            }
         }
         
-
     </script>
 </body>
+
 </html>
