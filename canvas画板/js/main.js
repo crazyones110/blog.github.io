@@ -4,12 +4,42 @@ var lastPoint = { x: undefined, y: undefined }
 var canvas = document.getElementById("canvas");
 var actions = document.getElementById("actions")
 var context = canvas.getContext("2d");
+var lineWidth = 5
 autoSetSize()
 listenToUser()
 
-canvas.ontouchstart = function (a) {
-    console.log(a)//a.touches[0].clientX
+// canvas.ontouchstart = function (a) {
+//     console.log(a)//a.touches[0].clientX
+// }
+black.onclick = function () {
+    black.classList.add("active")
+    red.classList.remove("active")
+    yellow.classList.remove("active")
+    blue.classList.remove("active")
+    context.strokeStyle = "black"
 }
+red.onclick = function () {
+    red.classList.add("active")
+    black.classList.remove("active")
+    yellow.classList.remove("active")
+    blue.classList.remove("active")
+    context.strokeStyle = "red"
+}
+yellow.onclick = function () {
+    yellow.classList.add("active")
+    black.classList.remove("active")
+    red.classList.remove("active")
+    blue.classList.remove("active")
+    context.strokeStyle = "yellow"
+}
+blue.onclick = function () {
+    blue.classList.add("active")
+    black.classList.remove("active")
+    red.classList.remove("active")
+    yellow.classList.remove("active")
+    context.strokeStyle = "blue"
+}
+
 
 function autoSetSize() {
     setSize()
@@ -27,31 +57,54 @@ function setSize() {
 function drawLine(x1, y1, x2, y2) {
     context.beginPath()
     context.moveTo(x1, y1)//起点
-    context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2)//终点
     context.stroke()
     context.closePath()
 }
 function drawCircle(x, y, radius) {
     context.beginPath()
-    // context.fillStyle = "red"
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
     context.closePath()
 }
 
-
+thin.onclick = function () {
+    lineWidth = 5
+    thin.classList.add("active")
+    thick.classList.remove("active")
+}
+thick.onclick = function(){
+    lineWidth = 10
+    thick.classList.add("active")
+    thin.classList.remove("active")
+}
 function listenToUser() {
     eraser.onclick = function () {
         eraserEnabled = true
-        actions.className = "actions eraserEnabled"
+        // actions.className = "actions eraserEnabled"
+        eraser.classList.add("active")
+        pen.classList.remove("active")
     }
-    brush.onclick = function () {
+    pen.onclick = function () {
         eraserEnabled = false
-        actions.className = "actions"
+        pen.classList.add("active")
+        eraser.classList.remove("active")
+    }
+    clear.onclick = function(){
+        context.clearRect(0, 0, canvas.width, canvas.height)
+    }
+    download.onclick = function(){
+        var url = canvas.toDataURL()
+        console.log(url)
+        var a = document.createElement("a")
+        a.download = "myPainting.png"
+        a.href = url
+        a.click()
     }
     if ("ontouchstart" in document.documentElement) {
         canvas.ontouchstart = function (a) {
+            console.log("开始摸了")
             using = true
             var x = a.touches[0].clientX
             var y = a.touches[0].clientY
