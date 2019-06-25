@@ -7,14 +7,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>在线画板</title> 
     <link rel="stylesheet" href="css/style.css">
+    <script src="//at.alicdn.com/t/font_1261131_62oi7i3i5yg.js"></script>
 </head>
 
 <body>
     <canvas id="canvas" width="800px" height="800px"></canvas>
     <div id="actions" class="actions">
-        <button id="eraser">橡皮擦</button>
-        <button id="brush">画笔</button>
+        <svg class="icon active" id="pen">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg class="icon" id="eraser">
+            <use xlink:href="#icon-eraser"></use>
+        </svg>  
+        <svg class="icon" id="clear">
+            <use xlink:href="#icon-delete"></use>
+        </svg>   
+        <svg class="icon" id="download">
+            <use xlink:href="#icon-download"></use>
+        </svg>
     </div>
+    <div class="color-wrapper">
+        <ul>
+            <li class="black active" id="black"></li>
+            <li class="red" id="red"></li>
+            <li class="yellow" id="yellow"></li>
+            <li class="blue" id="blue"></li>
+        </ul>
+    </div>
+    <div class="whole-wrapper">
+        <div class="width-wrapper">
+            <div class="thin-wrapper">
+                <div class="thin active" id="thin"></div>
+            </div>
+            <div class="thick-wrapper">
+                <div class="thick" id="thick"></div>
+            </div>
+        </div>
+    </div>
+    
     <script src="js/main.js"></script>
 </body>
 
