@@ -16,7 +16,7 @@ ul,ol{
     overflow: hidden;
 }
 #canvas {
-    background: green;
+    /* background: green; */
     /* height: 100vh;
     position: relative; */
     margin: 0;
