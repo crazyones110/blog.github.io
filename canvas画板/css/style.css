@@ -16,12 +16,15 @@ ul,ol{
     overflow: hidden;
 }
 #canvas {
-    /* background: green; */
+    background: green;
     /* height: 100vh;
     position: relative; */
     margin: 0;
     padding: 0;
-    display: block;
+    vertical-align: top;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .actions {
     position: fixed;
@@ -100,12 +103,13 @@ ul>li.blue{
     height: 0;
     border: 3px solid black;
     transition: all 0.3s;
+    margin: 0 10px;
 }
 .width-wrapper>.thick-wrapper>.thick{
     width: 15px;
     height: 0;
     border: 6px solid black;
-    margin: 0 20px;
+    margin: 0 10px;
     transition: all 0.3s;
 }
 .width-wrapper>.thin-wrapper>.thin.active{

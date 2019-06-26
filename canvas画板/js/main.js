@@ -8,37 +8,7 @@ var lineWidth = 5
 autoSetSize()
 listenToUser()
 
-// canvas.ontouchstart = function (a) {
-//     console.log(a)//a.touches[0].clientX
-// }
-black.onclick = function () {
-    black.classList.add("active")
-    red.classList.remove("active")
-    yellow.classList.remove("active")
-    blue.classList.remove("active")
-    context.strokeStyle = "black"
-}
-red.onclick = function () {
-    red.classList.add("active")
-    black.classList.remove("active")
-    yellow.classList.remove("active")
-    blue.classList.remove("active")
-    context.strokeStyle = "red"
-}
-yellow.onclick = function () {
-    yellow.classList.add("active")
-    black.classList.remove("active")
-    red.classList.remove("active")
-    blue.classList.remove("active")
-    context.strokeStyle = "yellow"
-}
-blue.onclick = function () {
-    blue.classList.add("active")
-    black.classList.remove("active")
-    red.classList.remove("active")
-    yellow.classList.remove("active")
-    context.strokeStyle = "blue"
-}
+
 
 
 function autoSetSize() {
@@ -69,17 +39,46 @@ function drawCircle(x, y, radius) {
     context.closePath()
 }
 
-thin.onclick = function () {
-    lineWidth = 5
-    thin.classList.add("active")
-    thick.classList.remove("active")
-}
-thick.onclick = function(){
-    lineWidth = 10
-    thick.classList.add("active")
-    thin.classList.remove("active")
-}
 function listenToUser() {
+    thin_wrapper.onclick = function(){
+        lineWidth = 5
+        thin.classList.add("active")
+        thick.classList.remove("active")
+    }
+    thick_wrapper.onclick = function(){
+        lineWidth = 10
+        thick.classList.add("active")
+        thin.classList.remove("active")
+    }
+    black.onclick = function () {
+        black.classList.add("active")
+        red.classList.remove("active")
+        yellow.classList.remove("active")
+        blue.classList.remove("active")
+        context.strokeStyle = "black"
+    }
+    red.onclick = function () {
+        red.classList.add("active")
+        black.classList.remove("active")
+        yellow.classList.remove("active")
+        blue.classList.remove("active")
+        context.strokeStyle = "red"
+    }
+    yellow.onclick = function () {
+        yellow.classList.add("active")
+        black.classList.remove("active")
+        red.classList.remove("active")
+        blue.classList.remove("active")
+        context.strokeStyle = "yellow"
+    }
+    blue.onclick = function () {
+        blue.classList.add("active")
+        black.classList.remove("active")
+        red.classList.remove("active")
+        yellow.classList.remove("active")
+        context.strokeStyle = "blue"
+    }
+    
     eraser.onclick = function () {
         eraserEnabled = true
         // actions.className = "actions eraserEnabled"
