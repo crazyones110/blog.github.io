@@ -24,7 +24,7 @@
     <div class="siteWelcome active" id="siteWelcome">
         <div class="loading"></div>
     </div>
-    <div class="topNavBar clearfix">
+    <div class="topNavBar clearfix" id="topNavBar">
         <div class="rscard">
             <span class="rs">RS</span><span class="rs_card">card</span>
         </div>
@@ -32,8 +32,22 @@
             <ul class="clearfix">
                 <li><a href="#">关于</a></li>
                 <li><a href="#">技能</a></li>
-                <li><a href="#">作品</a></li>
-                <li><a href="#">博客</a></li>
+                <li class="submenu">
+                    <a href="#">作品</a>
+                    <ul>
+                        <li>作品1</li>
+                        <li>作品2</li>
+                        <li>作品3</li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#">博客</a>
+                    <ul>
+                        <li>博客 1</li>
+                        <li>博客 2</li>
+                        <li>博客 3</li>
+                    </ul>
+                </li>
                 <li><a href="#">日历</a></li>
                 <li><a href="#">联系方式</a></li>
                 <li><a href="#">其他</a></li>
@@ -170,10 +184,23 @@
             </div>
         </div>
     </section>
+    <script src="js/main.js"></script>
     <script>
-        setTimeout(function(){
-            siteWelcome.classList.remove("active")
-        },3000)
+        // setTimeout(function(){
+        //     siteWelcome.classList.remove("active")
+        // },3000)
+        siteWelcome.classList.remove("active")
+        document.onscroll = function(){
+            if(scrollY>0){
+                topNavBar.classList.add("sticky")
+            }
+            else{
+                topNavBar.classList.remove("sticky")
+            }
+        }
+        // document.onscroll = scrollY>0?topNavBar.classList.add("sticky"):topNavBar.classList.remove("sticky")
+        
+        
         function click1(){
             document.getElementById("changeProgress").className = "progress state1"
         }
