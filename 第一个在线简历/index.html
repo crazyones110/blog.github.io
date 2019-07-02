@@ -22,7 +22,7 @@
 </head>
 <a href=""></a>
 <body>
-    <div class="siteWelcome active" id="siteWelcome">
+    <div class="siteWelcome active" id="siteWelcome" >
         <div class="loading"></div>
     </div>
     <div class="topNavBar clearfix" id="topNavBar">
@@ -31,7 +31,7 @@
         </div>
         <div class="nav">
             <ul class="clearfix">
-                <li><a href="#siteAbout">关于</a></li>
+                <li><a href="#siteAbout" class="highlight">关于</a></li>
                 <li><a href="#siteSkills">技能</a></li>
                 <li class="submenu">
                     <a href="#siteWorks">作品</a>
@@ -59,7 +59,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div class="card" id="siteAbout">
+        <div class="card" id="siteAbout" data-x>
             <div class="textAndImage clearfix">
                 <div class="img">
                     <img src="imgs/lufei.jpg" alt="avatar">
@@ -108,7 +108,7 @@
             技能：前端开发，Django全栈开发，Node.js 开发
         </p>
     </main>
-    <section class="skills" id="siteSkills">
+    <section class="skills" id="siteSkills" data-x>
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -162,7 +162,7 @@
 
         </ol>
     </section>
-    <section class="portfolio" id="siteWorks">
+    <section class="portfolio" id="siteWorks" data-x>
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -190,15 +190,7 @@
         // setTimeout(function(){
         //     siteWelcome.classList.remove("active")
         // },3000)
-        siteWelcome.classList.remove("active")
-        document.onscroll = function(){
-            if(scrollY>0){
-                topNavBar.classList.add("sticky")
-            }
-            else{
-                topNavBar.classList.remove("sticky")
-            }
-        }
+        
         // document.onscroll = scrollY>0?topNavBar.classList.add("sticky"):topNavBar.classList.remove("sticky")
         
         
