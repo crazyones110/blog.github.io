@@ -37,15 +37,32 @@ for (let i = 0; i < lis.length; ++i) {
         ul.classList.remove("active");
     }
 }
-console.log(siteSkills.offsetTop)
 let aTags = document.querySelectorAll(".nav>ul>li>a");
-console.log(aTags);
 for(let i =0;i<aTags.length;++i){
     aTags[i].onclick = (e) => {
         e.preventDefault();
         let temp = e.currentTarget; 
         let jumpLocation = document.querySelector(temp.getAttribute("href"));
-        console.log(jumpLocation);
-        window.scrollTo(0, jumpLocation.offsetTop - 80);
+        // console.log(jumpLocation);
+
+
+        let n = 25;//滚动25次，我试了改成120，就是120帧的电影了，贼流畅
+        let i = 0;
+        let duration = 500/n;//0.5s内滚动25次，一次滚多少秒
+        let currentPosition = scrollY;
+        let destination = jumpLocation.offsetTop;//跳转的地方的Y值
+        let distance = destination - 80 - currentPosition;
+        let step = distance/n;//每次滚多远
+        let id = setInterval(() =>{
+            if(i === n){
+                clearInterval(id);
+                return;
+            }
+            i += 1;
+            window.scrollTo(0, currentPosition + step*i);
+        }, duration);
+
+
     }
 }
+
