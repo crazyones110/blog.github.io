@@ -83,49 +83,39 @@ Node.prototype.addClass = function (classes) {
 
 //{a:true, b:false, c:true}
 function jQuery(nodeOrSelector) {
-    return {
-        addClass: function(classes){
-            let temp = {true: "add", false: "remove"};
-            if(typeof nodeOrSelector === "string"){
-                let nodes = document.querySelectorAll(nodeOrSelector);
-                for(let i = 0;i<nodes.length;++i){
-                    for(key in classes){
-                        nodes[i].classList[temp[classes[key]]](key);
-                    }
-                }
-            }
-            else if(nodeOrSelector instanceof Node){
-                for(key in classes){
-                    nodeOrSelector.classList[temp[classes[key]]](key);
-                }
-            }
-        },
-        text: function(newText){
-            let arr = [];
-            if(typeof nodeOrSelector === "string"){
-                let nodes = document.querySelectorAll(nodeOrSelector);
-                for(let i = 0;i<nodes.length;++i){
-                    if(newText === undefined)
-                        arr.push(nodes[i].textContent);
-                    else
-                        nodes[i].textContent = newText;                                     
-                }
-            }
-            else if(nodeOrSelector instanceof Node){
-                if(newText === undefined)
-                    arr.push(nodeOrSelector.textContent);
-                else
-                    arr.push(nodeOrSelector.textContent);                
-            }
-            return arr;
+    let nodes = {length:0}
+    if(typeof nodeOrSelector === "string"){
+        let dnodes = document.querySelectorAll(nodeOrSelector);
+        for(let i = 0; i<dnodes.length; ++i){
+            nodes[nodes.length++] = dnodes[i]
         }
     }
+    else if(nodeOrSelector instanceof Node){
+        nodes[nodes.length++] = Node;
+    }
+    nodes.addClass = function(classes){
+        let temp = {true: "add", false: "remove"};
+        for(let i = 0;i<nodes.length;++i){
+            for(key in classes){
+                nodes[i].classList[temp[classes[key]]](key);
+            }
+        }
+    }
+    nodes.text = function(newText){
+        let arr = [];
+        for(let i = 0;i<nodes.length;++i){
+            if(newText === undefined)
+                arr.push(nodes[i].textContent);
+            else
+                nodes[i].textContent = newText;                                     
+        }
+        return arr;
+    }
+    return nodes;
 }
 window.$ = jQuery;
-var node = $("ul>li");
-console.log(node);
-node.addClass({a:true, b:false, c:true});
-console.log(node.text("222"));
-console.log(node.text());
-// console.log(node.getSiblings.call(undefined));
-// node.addClass.call(undefined,{a:true,b:false,c:true});
+var $nodes = $("ul>li");
+console.log($nodes);
+$nodes.addClass({a:true, b:false, c:true});
+console.log($nodes.text("222"));
+console.log($nodes.text());
