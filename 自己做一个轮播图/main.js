@@ -6,12 +6,23 @@ for(let i =0;i<buttons.length; ++i){
         $("#images-wrapper").css({
             "transform":'translateX(' + (index*-300) + 'px)'
         });
+        count = index;
         $target.addClass("red").siblings().removeClass("red");
     });
 }
-// let count;
-// let size = buttons.length;
-// let autoInterval = setInterval(() => {
-//     count++;
-//     $(buttons[count%size]).triggger("click");
-// }, 1000);
+let count = 0;
+let size = buttons.length;
+buttons.eq(count%size).trigger("click");
+let autoInterval = setInterval(() => {
+    count++;
+    $(buttons[count%size]).trigger("click");
+}, 2000);
+$('#images-wrapper').on("mouseenter", function(){
+    clearInterval(autoInterval);
+});
+$('#images-wrapper').on("mouseleave",()=>{
+    autoInterval = setInterval(() => {
+    count++;
+    $(buttons[count%size]).trigger("click");
+    }, 2000);
+});
