@@ -13,16 +13,17 @@ for(let i =0;i<buttons.length; ++i){
 let count = 0;
 let size = buttons.length;
 buttons.eq(count%size).trigger("click");
-let autoInterval = setInterval(() => {
-    count++;
-    $(buttons[count%size]).trigger("click");
-}, 2000);
+
+let autoInterval = setTimer();
 $('#images-wrapper').on("mouseenter", function(){
     clearInterval(autoInterval);
 });
 $('#images-wrapper').on("mouseleave",()=>{
-    autoInterval = setInterval(() => {
-    count++;
-    $(buttons[count%size]).trigger("click");
-    }, 2000);
+    autoInterval = setTimer();
 });
+function setTimer(){
+    return setInterval(() => {
+        count++;
+        $(buttons[count%size]).trigger("click");
+        }, 2000);
+}
