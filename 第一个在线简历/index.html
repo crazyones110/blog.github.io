@@ -13,8 +13,6 @@
     <script src="https://at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
     <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
 </head>
-<a href=""></a>
-
 <body>
     <div class="siteWelcome active" id="siteWelcome">
         <div class="loading"></div>
@@ -176,23 +174,11 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </section>
-    <script src="js/main.js"></script>
-    <script>
-        var mySwiper = new Swiper('.swiper-container', {
-            loop: true, // 循环模式选项
-
-            // 如果需要分页器
-            pagination: {
-                el: '.swiper-pagination',
-            },
-
-            // 如果需要前进后退按钮
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        })        
-    </script>
+    <script src="js/init_swiper.js"></script>
+    <script src="js/auto-slide-up.js"></script>
+    <script src="js/smooth-navigation.js"></script>
+    <script src="js/sticky-topbar.js"></script>
+    <script src="js/submenu.js"></script>
 </body>
 
 </html>
