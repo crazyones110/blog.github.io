@@ -6,23 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loading.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script src="https://at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
-    <style type="text/css">
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-    </style>
     <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
 </head>
 <a href=""></a>
+
 <body>
-    <div class="siteWelcome active" id="siteWelcome" >
+    <div class="siteWelcome active" id="siteWelcome">
         <div class="loading"></div>
     </div>
     <div class="topNavBar clearfix" id="topNavBar">
@@ -164,45 +158,40 @@
     </section>
     <section class="portfolio" id="siteWorks" data-x>
         <h2>作品集</h2>
-        <nav>
-            <ol class="clearfix">
-                <li id="click1" onclick="click1()">所有</li>
-                <li id="click2" onclick="click2()">框架</li>
-                <li id="click3" onclick="click3()">原生JS&amp;CSS</li>
-            </ol>
-            <div class="progress state3" id="changeProgress">
-                    <div class="progress-inner"></div>
-            </div>
-        </nav>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!--方方是直接把下面的div改成了img，然后调整container的宽高-->
+                <img class="swiper-slide" src="./imgs/canvas.jpg" style="width: 100%;height: 100%">
 
-        <div class="jobs clearfix">
-            <div class="big">
-                <img src="imgs/big1.jpg" alt="big1">
+                <img class="swiper-slide" src="./imgs/home.png">
+
+                <img class="swiper-slide" src="./imgs/nav.png">
+
             </div>
-            <div class="small-wrapper">
-                <div class="small"><img src="imgs/small1.jpg" alt="small1"></div>
-                <div class="small"><img src="imgs/small2.jpg" alt="small2"></div>
-            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
         </div>
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </section>
     <script src="js/main.js"></script>
     <script>
-        // setTimeout(function(){
-        //     siteWelcome.classList.remove("active")
-        // },3000)
-        
-        // document.onscroll = scrollY>0?topNavBar.classList.add("sticky"):topNavBar.classList.remove("sticky")
-        
-        
-        function click1(){
-            document.getElementById("changeProgress").className = "progress state1"
-        }
-        function click2(){
-            document.getElementById("changeProgress").className = "progress state2"
-        }
-        function click3(){
-            document.getElementById("changeProgress").className = "progress state3"
-        }
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })        
     </script>
 </body>
 
