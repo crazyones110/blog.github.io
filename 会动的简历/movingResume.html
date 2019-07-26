@@ -6,37 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>movingResume</title>
     <style id="styleSheet"></style>
+    <link rel="stylesheet" href="vendor/prism/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="vendor/prism/prism.js"></script>
 </head>
 <body>
     <pre id="code"></pre>
-    <script>
-        var n = 1;
-        var str = `
-        /*
-        面试官你好，我是范路平
-        我将以动画的形式介绍我自己
-
-        只用文字介绍太单调了
-        我就用代码来介绍吧
-
-        首先准备一些样式
-        */
-
-        *{
-            transition: all 1s;
-        }
-        html{
-            background: rgb(222, 222 ,222);
-            font-size: 16px;
-        }      
-        `
-        var interval = setInterval(() => {
-            code.innerHTML = str.substring(0, n);
-            styleSheet.innerHTML = str.substring(0, n);
-            n++;
-            if(n>str.length)
-                clearInterval(interval);
-        }, 10);
-    </script>
+    <!-- <div class="test"></div> -->
+    <script src="js/main.js"></script>
 </body>
 </html>

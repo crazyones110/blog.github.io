@@ -1,0 +1,9 @@
+.test { width: 200px; height: 200px; background-color: red; -webkit-animation: swoop 1s linear; animation: swoop 1s linear; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; position: fixed; top: 100px; left: 100px; }
+
+@-webkit-keyframes swoop { 0% { -webkit-transform: scale(0.5); transform: scale(0.5); }
+  70% { -webkit-transform: scale(2); transform: scale(2); }
+  100% { -webkit-transform: scale(1); transform: scale(1); } }
+
+@keyframes swoop { 0% { -webkit-transform: scale(0.5); transform: scale(0.5); }
+  70% { -webkit-transform: scale(2); transform: scale(2); }
+  100% { -webkit-transform: scale(1); transform: scale(1); } }
