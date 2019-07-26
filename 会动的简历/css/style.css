@@ -7,3 +7,15 @@
 @keyframes swoop { 0% { -webkit-transform: scale(0.5); transform: scale(0.5); }
   70% { -webkit-transform: scale(2); transform: scale(2); }
   100% { -webkit-transform: scale(1); transform: scale(1); } }
+
+.token.selector { color: black; }
+
+.token.property { color: black; }
+
+.token.function { color: black; }
+
+.token.rule { color: black; }
+
+.token.atrule { color: black; }
+
+.token.comment { color: black; }
