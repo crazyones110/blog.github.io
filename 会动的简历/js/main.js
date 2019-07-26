@@ -44,43 +44,51 @@ var str = `
   /* 不玩了，我来介绍一下我自己吧 */
   /* 我需要一张白纸 */
   `
-var n = 1;
-var interval = setInterval(() => {
-
-  // Returns a highlighted HTML string
-
-  code.innerHTML = str.substring(0, n)
-  code.innerHTML = Prism.highlight(code.innerHTML, Prism.languages.css, 'css')
-  styleSheet.innerHTML = str.substring(0, n)
-  n++;
-  if (n > str.length) {
-    clearInterval(interval)
-    addPaper()
-    displayPaper(str)
-  }
-}, 10)
-function addPaper() {
-  var paper = document.createElement("div")
-  paper.id = "paper"
-  document.body.appendChild(paper)
-}
-let n2 = 1
-function displayPaper(prevStr) {
-  var str2 = `
+var str2 = `
   #paper{
-    width: 200px;
-    height: 200px;
-    background-color: red;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    width: 50%;
+  }
+  .content{
+    width: 100%;
+    height: 100%;
+    background-color: white;
   }
   `
-  var interval2 = setInterval(() => {
-    code.innerHTML = prevStr
-    code.innerHTML = code.innerHTML + str2.substring(0, n2)
-    styleSheet.innerHTML = code.innerHTML
-    code.innerHTML = Prism.highlight(code.innerHTML, Prism.languages.css, 'css')
-    n2++
-    if(n2 > str2.length){
-      clearInterval(interval2)
+writeCode("", str, () => {
+  addPaper(() => {
+    writeCode(str, str2)
+  })
+})
+
+function writeCode(prefix, str, fn) {
+  let n = 1
+  let interval = setInterval(() => {
+    code.innerHTML = Prism.highlight(prefix + str.substring(0, n), Prism.languages.css, 'css')
+    styleSheet.innerHTML = prefix + str.substring(0, n)
+    code.scrollTop = code.scrollHeight
+    n++;
+    if (n > str.length) {
+      clearInterval(interval)
+      fn()
     }
   }, 10);
 }
+
+function addPaper(fn) {
+  var paper = document.createElement("div")
+  paper.id = "paper"
+  document.body.appendChild(paper)
+  var content = document.createElement("pre")
+  content.className = "content"
+  paper.appendChild(content)
+  fn()
+}
+
