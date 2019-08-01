@@ -46,21 +46,25 @@ var str = `
   `
 var str2 = `
   #paper{
-    height: 100%;
-    background-color: black;
-    position: fixed;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    width: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: red;
   }
-  .content{
-    width: 100%;
-    height: 100%;
-    background-color: white;
-  }
+  /*
+  aaa
+  aaa
+  aaa
+  aaa
+  aaa
+
+
+
+
+
+  aaa
+  aaa
+  aaa
+  */
   `
 writeCode("", str, () => {
   addPaper(() => {
@@ -73,7 +77,12 @@ function writeCode(prefix, str, fn) {
   let interval = setInterval(() => {
     code.innerHTML = Prism.highlight(prefix + str.substring(0, n), Prism.languages.css, 'css')
     styleSheet.innerHTML = prefix + str.substring(0, n)
-    code.scrollTop = code.scrollHeight
+    // code.scrollTop = code.scrollHeight
+    // $(code).scrollTop(code.scrollHeight)
+    // window.scrollBy(0, 10)
+    // window.scrollTo(0, code.scrollHeight)
+    // code.scrollTop = code.scrollHeight - code.clientHeight
+    code.scrollIntoView(false);
     n++;
     if (n > str.length) {
       clearInterval(interval)
