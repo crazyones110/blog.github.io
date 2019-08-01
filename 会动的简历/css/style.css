@@ -1,12 +1,4 @@
-.test { width: 200px; height: 200px; background-color: red; -webkit-animation: swoop 1s linear; animation: swoop 1s linear; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; position: fixed; top: 100px; left: 100px; }
-
-@-webkit-keyframes swoop { 0% { -webkit-transform: scale(0.5); transform: scale(0.5); }
-  70% { -webkit-transform: scale(2); transform: scale(2); }
-  100% { -webkit-transform: scale(1); transform: scale(1); } }
-
-@keyframes swoop { 0% { -webkit-transform: scale(0.5); transform: scale(0.5); }
-  70% { -webkit-transform: scale(2); transform: scale(2); }
-  100% { -webkit-transform: scale(1); transform: scale(1); } }
+* { margin: 0; padding: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .token.selector { color: black; }
 
@@ -19,3 +11,17 @@
 .token.atrule { color: black; }
 
 .token.comment { color: black; }
+
+body { display: -webkit-box; display: -ms-flexbox; display: flex; }
+
+#code { height: 100vh; overflow: auto; }
+
+#paper { width: 50vw; background-color: black; padding: 16px; }
+
+#paper pre { background-color: white; overflow: auto; height: 100%; padding: 32px; }
+
+@-webkit-keyframes breathe { 0% { -webkit-box-shadow: 0 0 10px black; box-shadow: 0 0 10px black; }
+  100% { -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); } }
+
+@keyframes breathe { 0% { -webkit-box-shadow: 0 0 10px black; box-shadow: 0 0 10px black; }
+  100% { -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); } }
