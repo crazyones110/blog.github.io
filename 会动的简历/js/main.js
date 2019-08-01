@@ -18,7 +18,7 @@ var str = `
   }
   #code{
       border: 1px solid red;
-      padding: 16px;
+      padding: 60px;
       width: 100vw;
   }
   /* 接下来我要加入代码高亮 */
@@ -38,9 +38,13 @@ var str = `
     color: slategray;
   } 
   
-  /* 加点动画吧 */
+  /* 加点特效吧 */
+  .codeWrapper{
+    perspective: 1500;
+    -webkit-perspective: 1500;
+  }
   #code{
-    
+    transform: rotateY(20deg);
   }
   /* 不玩了，我来介绍一下我自己吧 */
   /* 我需要一张白纸 */
