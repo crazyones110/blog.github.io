@@ -13,7 +13,7 @@ var str = `
       transition: all 1s;
   }
   html{
-      background-color: #ddd;
+      background-color: #fdfdfd;
       font-size: 16px;
   }
   #code{
@@ -99,11 +99,20 @@ var str3 = `
   接下来借助一个优秀的开源库，marked.js
   将markdown转为html
   */
+`
+var strBreathe = `
   /*
   然后给我的markdown加上呼吸特效
   */
   #paper>pre{
-    animation: breathe 300ms ease-in-out;
+    animation: breathe 0.5s infinite alternate-reverse;
+  }
+  /*
+  再让我的markdown颜色炫酷一点
+  */
+  #paper>pre{
+    background-color: black;
+    color:white;
   }
 `
 writeCode("", str, code, () => {
@@ -111,7 +120,9 @@ writeCode("", str, code, () => {
     writeCode(str, str2, code, ()=>{
       writeMd("", mdStr, ()=>{
         writeCode(str + str2, str3, code, ()=>{
-          highlightMd()
+          highlightMd(()=>{
+            writeCode(str + str2 + str3, strBreathe, code)
+          })
         })
       })
     })
