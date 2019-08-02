@@ -20,6 +20,12 @@ body { height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex;
 
 .cheek { width: 68px; height: 68px; border: 2px solid black; background-color: #fc0d1c; border-radius: 50%; position: absolute; top: 80px; }
 
-.cheek.left { right: 50%; -webkit-transform: translateX(-100px); transform: translateX(-100px); }
+.cheek.left { right: 50%; -webkit-transform: translateX(-104px); transform: translateX(-104px); }
 
-.cheek.right { left: 50%; -webkit-transform: translateX(100px); transform: translateX(100px); }
+.cheek.right { left: 50%; -webkit-transform: translateX(104px); transform: translateX(104px); }
+
+.upperLip { width: 25px; height: 80px; position: absolute; }
+
+.upperLip.left { border: 2px solid black; border-bottom-right-radius: 40px 70px; border-top: none; border-left: none; -webkit-transform: rotate(68deg); transform: rotate(68deg); left: 50%; top: 14%; }
+
+.upperLip.right { border: 2px solid black; border-bottom-left-radius: 40px 70px; border-top: none; border-right: none; -webkit-transform: rotate(-68deg); transform: rotate(-68deg); left: 46%; top: 14%; }
