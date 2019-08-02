@@ -1,0 +1,67 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  &::after
+    box-sizing: border-box
+  &::before
+    box-sizing: border-box
+body
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: rgb(254, 258, 51)
+.wrapper
+  position: relative
+  width: 100%
+  border: 1px solid red
+  height: 190px
+.nose
+  width: 0
+  height: 0
+  background-color: rgba(255, 255, 255, 0)
+  border: 16px solid black
+    radius: 15px
+    color: black transparent transparent transparent
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  top: 25px
+.eye
+  width: 49px
+  height: 49px
+  border-radius: 50%
+  position: absolute
+  background-color: rgb(46, 46, 46)
+  &::before
+    content: ''
+    display: block
+    position: absolute
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    background-color: white
+    top: 3px
+    left: 10px
+  &.left
+    transform: translateX(-80px)
+    right: 50%
+  &.right
+    transform: translateX(80px)
+    left: 50%
+.cheek
+  width: 68px
+  height: 68px
+  border: 2px solid black
+  background-color: rgb(252, 13, 28)
+  border-radius: 50%
+  position: absolute
+  top: 80px
+  &.left
+    right: 50%
+    transform: translateX(-100px)
+  &.right
+    left: 50%
+    transform: translateX(100px)
+
