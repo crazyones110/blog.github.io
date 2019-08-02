@@ -27,19 +27,18 @@ body
   left: 50%
   transform: translateX(-50%)
   top: 25px
-  // &:hover
-  //   animation: sway 1s ease
+  &:hover
+    animation: sway .23s ease
+      iteration-count: 2
 @keyframes sway
   0%
-    transform: rotate(0deg)
-  25%
-    transform: rotate(2deg)
-  50%
-    transform: rotate(0deg)
-  75%
-    transform: rotate(-2deg)
+    transform: rotate(0deg) translateX(-50%)
+  33%
+    transform: rotate(-2deg) translateX(-50%)
+  67%
+    transform: rotate(2deg) translateX(-50%)
   100%
-    transform: rotate(0deg)
+    transform: rotate(0deg) translateX(-50%)
 .eye
   width: 49px
   height: 49px
