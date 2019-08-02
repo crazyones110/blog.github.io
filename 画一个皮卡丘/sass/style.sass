@@ -15,7 +15,6 @@ body
 .wrapper
   position: relative
   width: 100%
-  border: 1px solid red
   height: 190px
 .nose
   width: 0
@@ -28,12 +27,26 @@ body
   left: 50%
   transform: translateX(-50%)
   top: 25px
+  // &:hover
+  //   animation: sway 1s ease
+@keyframes sway
+  0%
+    transform: rotate(0deg)
+  25%
+    transform: rotate(2deg)
+  50%
+    transform: rotate(0deg)
+  75%
+    transform: rotate(-2deg)
+  100%
+    transform: rotate(0deg)
 .eye
   width: 49px
   height: 49px
   border-radius: 50%
   position: absolute
   background-color: rgb(46, 46, 46)
+  border: 2px solid black
   &::before
     content: ''
     display: block
@@ -42,8 +55,8 @@ body
     height: 24px
     border-radius: 50%
     background-color: white
-    top: 3px
-    left: 10px
+    top: 0
+    left: 8px
   &.left
     transform: translateX(-80px)
     right: 50%
@@ -67,14 +80,15 @@ body
 .upperLip
   width: 25px
   height: 80px
-  position: absolute  
+  position: absolute
+  background-color: rgb(254, 255, 51)  
   &.left
     border: 2px solid black
       bottom-right-radius: 40px 70px
       top: none
       left: none
     transform: rotate(68deg)    
-    left: 50%
+    left: 46.2%
     top: 14%
   &.right
     border: 2px solid black
@@ -82,5 +96,34 @@ body
       top: none
       right: none
     transform: rotate(-68deg)    
-    left: 46%
+    left: 52%
     top: 14%
+.tongueWrapper
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  bottom: 0
+  z-index: -1
+  height: 128px
+  overflow: hidden
+  width: 300px
+  .tongue
+    height: 3500px
+    width: 300px
+    background-color: #990513
+    border-radius: 200px/2000px
+    border: 2px solid black
+    position: absolute
+    bottom: 0
+    overflow: hidden
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      width: 100px
+      height: 100px
+      background-color: rgb(252, 74, 98)
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      border-radius: 50%
