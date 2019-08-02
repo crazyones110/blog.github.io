@@ -60,8 +60,27 @@ body
   top: 80px
   &.left
     right: 50%
-    transform: translateX(-100px)
+    transform: translateX(-104px)
   &.right
     left: 50%
-    transform: translateX(100px)
-
+    transform: translateX(104px)
+.upperLip
+  width: 25px
+  height: 80px
+  position: absolute  
+  &.left
+    border: 2px solid black
+      bottom-right-radius: 40px 70px
+      top: none
+      left: none
+    transform: rotate(68deg)    
+    left: 50%
+    top: 14%
+  &.right
+    border: 2px solid black
+      bottom-left-radius: 40px 70px
+      top: none
+      right: none
+    transform: rotate(-68deg)    
+    left: 46%
+    top: 14%
