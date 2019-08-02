@@ -10,18 +10,16 @@ body { height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex;
 
 .nose { width: 0; height: 0; background-color: rgba(255, 255, 255, 0); border: 16px solid black; border-radius: 15px; border-color: black transparent transparent transparent; position: absolute; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); top: 25px; }
 
-.nose:hover { -webkit-animation: sway 1s ease; animation: sway 1s ease; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; }
+.nose:hover { -webkit-animation: sway 0.23s ease; animation: sway 0.23s ease; -webkit-animation-iteration-count: 2; animation-iteration-count: 2; }
 
 @-webkit-keyframes sway { 0% { -webkit-transform: rotate(0deg) translateX(-50%); transform: rotate(0deg) translateX(-50%); }
-  25% { -webkit-transform: rotate(10deg) translateX(-50%); transform: rotate(10deg) translateX(-50%); }
-  50% { -webkit-transform: rotate(0deg) translateX(-50%); transform: rotate(0deg) translateX(-50%); }
-  75% { -webkit-transform: rotate(-10deg) translateX(-50%); transform: rotate(-10deg) translateX(-50%); }
+  33% { -webkit-transform: rotate(-2deg) translateX(-50%); transform: rotate(-2deg) translateX(-50%); }
+  67% { -webkit-transform: rotate(2deg) translateX(-50%); transform: rotate(2deg) translateX(-50%); }
   100% { -webkit-transform: rotate(0deg) translateX(-50%); transform: rotate(0deg) translateX(-50%); } }
 
 @keyframes sway { 0% { -webkit-transform: rotate(0deg) translateX(-50%); transform: rotate(0deg) translateX(-50%); }
-  25% { -webkit-transform: rotate(10deg) translateX(-50%); transform: rotate(10deg) translateX(-50%); }
-  50% { -webkit-transform: rotate(0deg) translateX(-50%); transform: rotate(0deg) translateX(-50%); }
-  75% { -webkit-transform: rotate(-10deg) translateX(-50%); transform: rotate(-10deg) translateX(-50%); }
+  33% { -webkit-transform: rotate(-2deg) translateX(-50%); transform: rotate(-2deg) translateX(-50%); }
+  67% { -webkit-transform: rotate(2deg) translateX(-50%); transform: rotate(2deg) translateX(-50%); }
   100% { -webkit-transform: rotate(0deg) translateX(-50%); transform: rotate(0deg) translateX(-50%); } }
 
 .eye { width: 49px; height: 49px; border-radius: 50%; position: absolute; background-color: #2e2e2e; border: 2px solid black; }
