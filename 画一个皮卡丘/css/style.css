@@ -38,9 +38,9 @@ body { height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex;
 
 .upperLip { width: 25px; height: 80px; position: absolute; background-color: #feff33; }
 
-.upperLip.left { border: 2px solid black; border-bottom-right-radius: 40px 70px; border-top: none; border-left: none; -webkit-transform: rotate(68deg); transform: rotate(68deg); left: 46.2%; top: 14%; }
+.upperLip.left { border: 2px solid black; border-bottom-right-radius: 40px 70px; border-top: none; border-left: none; -webkit-transform: rotate(68deg); transform: rotate(68deg); left: 50%; margin-left: -53px; top: 14%; }
 
-.upperLip.right { border: 2px solid black; border-bottom-left-radius: 40px 70px; border-top: none; border-right: none; -webkit-transform: rotate(-68deg); transform: rotate(-68deg); left: 52%; top: 14%; }
+.upperLip.right { border: 2px solid black; border-bottom-left-radius: 40px 70px; border-top: none; border-right: none; -webkit-transform: rotate(-68deg); transform: rotate(-68deg); right: 50%; margin-right: -53px; top: 14%; }
 
 .tongueWrapper { position: absolute; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); bottom: 0; z-index: -1; height: 128px; overflow: hidden; width: 300px; }
 
