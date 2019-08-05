@@ -118,7 +118,7 @@ margin-right: -53px;
 top: 14%;
 }
 /*
-最后就到了皮卡丘的胡须了
+然后就到了皮卡丘的胡须了
 */
 .tongueWrapper {
 position: absolute;
@@ -130,7 +130,9 @@ height: 128px;
 overflow: hidden;
 width: 300px;
 }
-
+/*
+然后就到了皮卡丘的嘴
+*/
 .tongueWrapper .tongue {
 height: 3500px;
 width: 300px;
@@ -141,7 +143,9 @@ position: absolute;
 bottom: 0;
 overflow: hidden;
 }
-
+/*
+最后是皮卡丘的舌头
+*/
 .tongueWrapper .tongue::before {
 content: '';
 display: block;
