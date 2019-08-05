@@ -1,21 +1,4 @@
 !function(){
-    let duration = 50
-    function writeCode(prefix, str, fn){
-        let pre = document.querySelector(".codeWrapper>pre")
-        let styleTag = document.querySelector("#styleTag")
-        let n =1
-        let timeout = setTimeout(function writeOnce() {
-            pre.innerHTML = prefix + str.substring(0, n)
-            styleTag.innerHTML = prefix + str.substring(0, n)
-            pre.scrollTop = pre.scrollHeight
-            n++
-            if(n > str.length){
-                fn && fn()
-            }else{
-                timeout = setTimeout(writeOnce,duration)
-            }
-        }, duration);
-    }
     let code = `
 /*
 大家好，我是范路平，今天给大家带来一个动画版的皮卡丘
@@ -175,6 +158,23 @@ border-radius: 50%;
 好了，这只皮卡丘送给你，谢谢大家的观看
 */
 `
+    let duration = 50
+    function writeCode(prefix, str, fn){
+    let pre = document.querySelector(".codeWrapper>pre")
+    let styleTag = document.querySelector("#styleTag")
+    let n =1
+    let timeout = setTimeout(function writeOnce() {
+        pre.innerHTML = prefix + str.substring(0, n)
+        styleTag.innerHTML = prefix + str.substring(0, n)
+        pre.scrollTop = pre.scrollHeight
+        n++
+        if(n > str.length){
+            fn && fn()
+        }else{
+            timeout = setTimeout(writeOnce,duration)
+        }
+    }, duration);
+}
     writeCode("", code)
     $(".actions").on("click", "button", (e)=>{
         let $button = $(e.currentTarget)
@@ -192,4 +192,5 @@ border-radius: 50%;
                 break
         }
     })
+    
 }.call()
