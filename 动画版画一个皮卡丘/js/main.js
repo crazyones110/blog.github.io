@@ -1,18 +1,20 @@
 !function(){
+    let duration = 50
     function writeCode(prefix, str, fn){
         let pre = document.querySelector(".codeWrapper>pre")
         let styleTag = document.querySelector("#styleTag")
         let n =1
-        let interval = setInterval(() => {
+        let timeout = setTimeout(function writeOnce() {
             pre.innerHTML = prefix + str.substring(0, n)
             styleTag.innerHTML = prefix + str.substring(0, n)
             pre.scrollTop = pre.scrollHeight
             n++
             if(n > str.length){
-                window.clearInterval(interval)
                 fn && fn()
+            }else{
+                timeout = setTimeout(writeOnce,duration)
             }
-        }, 10);
+        }, duration);
     }
     let code = `
 /*
@@ -27,11 +29,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-color: #feff33;
-}
-.wrapper {
-position: relative;
-width: 100%;
-height: 190px;
 }
 /*
 再画皮卡丘的鼻子
@@ -180,6 +177,19 @@ border-radius: 50%;
 `
     writeCode("", code)
     $(".actions").on("click", "button", (e)=>{
-        $(e.currentTarget).addClass("active").siblings(".active").removeClass("active")
+        let $button = $(e.currentTarget)
+        $button.addClass("active").siblings(".active").removeClass("active")
+        let speed = $button.attr("data-speed")
+        switch (speed) {
+            case "slow":
+                duration = 100
+                break;
+            case "medium":
+                duration = 50
+                break
+            case "fast":
+                duration = 10
+                break
+        }
     })
 }.call()
