@@ -163,24 +163,25 @@ border-radius: 50%;
 */
 `
     let duration = 50
+    let timeout
     function writeCode(prefix, str, fn){
-    let pre = document.querySelector(".codeWrapper>pre")
-    let styleTag = document.querySelector("#styleTag")
-    let n =1
-    let timeout = setTimeout(function writeOnce() {
-        pre.innerHTML = prefix + str.substring(0, n)
-        styleTag.innerHTML = prefix + str.substring(0, n)
-        pre.scrollTop = pre.scrollHeight
-        n++
-        if(n > str.length){
-            fn && fn()
-        }else{
-            timeout = setTimeout(writeOnce,duration)
-        }
-    }, duration);
+        let pre = document.querySelector(".codeWrapper>pre")
+        let styleTag = document.querySelector("#styleTag")
+        let n = 1
+        timeout = setTimeout(function writeOnce() {
+            pre.innerHTML = prefix + str.substring(0, n)
+            styleTag.innerHTML = prefix + str.substring(0, n)
+            pre.scrollTop = pre.scrollHeight
+            n++
+            if(n > str.length){
+                fn && fn()
+            }else{
+                timeout = setTimeout(writeOnce,duration)
+            }
+        }, duration)
 }
     writeCode("", code)
-    $(".actions").on("click", "button", (e)=>{
+    $(".speed").on("click", "button", (e)=>{
         let $button = $(e.currentTarget)
         $button.addClass("active").siblings(".active").removeClass("active")
         let speed = $button.attr("data-speed")
@@ -196,5 +197,33 @@ border-radius: 50%;
                 break
         }
     })
-    
+    $(".location").on("click", "button",(e)=>{
+        let $button = $(e.currentTarget)
+        $button.addClass("active").siblings(".active").removeClass("active")
+        let location = $button.attr("data-location")
+        let pre = document.querySelector(".codeWrapper>pre")
+        let styleTag = document.querySelector("#styleTag")        
+        switch (location) {
+            case "end":
+                window.clearTimeout(timeout)
+                pre.innerHTML = code
+                styleTag.innerHTML = code
+                break;
+            case "start":
+                window.clearTimeout(timeout)
+                let n = 1
+                timeout = setTimeout(function writeOnce() {
+                    pre.innerHTML = code.substring(0, n)
+                    styleTag.innerHTML = code.substring(0, n)
+                    pre.scrollTop = pre.scrollHeight
+                    n++
+                    if(n > code.length){
+                        fn && fn()
+                    }else{
+                        timeout = setTimeout(writeOnce, duration)
+                    }
+                }, duration)
+                break
+        }
+    })
 }.call()
