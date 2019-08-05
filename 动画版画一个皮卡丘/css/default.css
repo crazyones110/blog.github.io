@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.codeWrapper {
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+    -ms-flex-preferred-size: 50vh;
+    flex-basis: 50vh;
+}
+
+.codeWrapper pre {
+    overflow: auto;
+    height: 50vh;
+    padding: 16px;
+}
+
+.actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.actions button {
+    border: none;
+    padding: 5px;
+    background-color: #feff33;
+    color: black;
+}
+
+.actions button:focus {
+    background-color: white;
+    outline: 1px solid #84b2fe;
+}
+
+.actions button.active {
+    background-color: white;
+    outline: 1px solid #84b2fe;
+}
+
+.wrapper div:not(:last-child) {
+    z-index: 1;
+}
+
+/*
+给皮卡丘的鼻子加上一点动画
+*/
+
+.nose:hover {
+    animation: sway 0.23s ease;
+    animation-iteration-count: 2;
+}
+
+@keyframes sway {
+    0% {
+        -webkit-transform: rotate(0deg) translateX(-50%);
+        transform: rotate(0deg) translateX(-50%);
+    }
+    33% {
+        -webkit-transform: rotate(-2deg) translateX(-50%);
+        transform: rotate(-2deg) translateX(-50%);
+    }
+    67% {
+        -webkit-transform: rotate(2deg) translateX(-50%);
+        transform: rotate(2deg) translateX(-50%);
+    }
+    100% {
+        -webkit-transform: rotate(0deg) translateX(-50%);
+        transform: rotate(0deg) translateX(-50%);
+    }
+}
