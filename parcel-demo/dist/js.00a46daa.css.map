@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass\\style.sass"],"names":[],"mappings":"AACE;EACE;EACA","file":"js.00a46daa.css","sourceRoot":"..","sourcesContent":["body\r\n  p\r\n    height: 100px\r\n    background-color: red\r\n\r\n\r\n"]}
